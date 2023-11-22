@@ -8,14 +8,10 @@
     "build": "tsc && npm run prod:build && npm run dev:build",
 
     "// production build": "",
-    "prod:build": "npm run prod:build:web && npm run prod:build:native",
-    "prod:build:web": "PLATFORM=web vite build",
-    "prod:build:native": "PLATFORM=native vite build",
+    "prod:build": "PLATFORM=web vite build && PLATFORM=native vite build",
 
     "// development build": "",
-    "dev:build": "npm run dev:build:web && npm run dev:build:native",
-    "dev:build:web": "PLATFORM=web vite build -m development",
-    "dev:build:native": "PLATFORM=native vite build -m development"
+    "dev:build": "PLATFORM=web vite build -m development && PLATFORM=native vite build -m development"
   },
   "keywords": [],
   "author": "",
