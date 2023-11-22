@@ -1,3 +1,6 @@
+/// <reference types="vitest" />
+
+import path from 'path';
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
 
@@ -17,6 +20,9 @@ if (!PLATFORM || !supportedPlatforms.includes(PLATFORM)) {
 }
 
 export default ({ mode }) => defineConfig({
+  test: {
+    include: [`./src/**/*.${PLATFORM}.test.ts`]
+  },
   plugins: [
     dts({
       include: ["src"],
@@ -33,11 +39,14 @@ export default ({ mode }) => defineConfig({
   ],
   resolve: {
     extensions: [".js", ".ts", ".jsx", ".tsx", `.${PLATFORM}.ts`, `.${PLATFORM}.tsx`],
+    alias: {
+      '@': `${path.resolve(__dirname, './src')}`
+    }
   },
   build: {
     lib: {
       entry: "./src/index.ts",
-      name: "my-lib",
+      name: "cross-platform-library-starter",
       formats: ["es"],
     },
     outDir: `dist/${PLATFORM}/${mode}`,

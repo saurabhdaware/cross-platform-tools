@@ -20,11 +20,12 @@
     }
   },
   "scripts": {
+    "test": "PLATFORM=web vitest run && PLATFORM=native vitest run",
+    "test:web": "PLATFORM=web vitest",
+    "test:native": "PLATFORM=native vitest",
     "build": "tsc && npm run prod:build && npm run dev:build",
-
     "// production build": "",
     "prod:build": "PLATFORM=web vite build && PLATFORM=native vite build",
-
     "// development build": "",
     "dev:build": "PLATFORM=web vite build -m development && PLATFORM=native vite build -m development"
   },
@@ -35,6 +36,7 @@
     "@types/node": "^20.9.2",
     "typescript": "5.3.2",
     "vite": "^5.0.0",
-    "vite-plugin-dts": "^3.6.3"
+    "vite-plugin-dts": "^3.6.3",
+    "vitest": "^0.34.6"
   }
 }
