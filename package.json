@@ -3,7 +3,22 @@
   "version": "1.0.0",
   "description": "",
   "type": "module",
-  "main": "index.js",
+  "main": "./dist/web/production/index.js",
+  "types": "./dist/web/types/index.d.ts",
+  "exports": {
+    "default": {
+      "default": "./dist/web/production/index.js",
+      "production": "./dist/web/production/index.js",
+      "development": "./dist/web/development/index.js",
+      "types": "./dist/web/types/index.d.ts"
+    },
+    "react-native": {
+      "default": "./dist/native/production/index.js",
+      "production": "./dist/native/production/index.js",
+      "development": "./dist/native/development/index.js",
+      "types": "./dist/native/types/index.d.ts"
+    }
+  },
   "scripts": {
     "build": "tsc && npm run prod:build && npm run dev:build",
 
