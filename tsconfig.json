@@ -20,8 +20,8 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "moduleSuffixes": [".all", ".web", ""],
+    "types": ["vite/client"],
   },
   "include": ["src"],
-  "lib": ["vite/client"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

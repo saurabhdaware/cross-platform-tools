@@ -5,10 +5,17 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "build": "tsc && npm run build:web && npm run build:native",
-    "build:web": "PLATFORM=web vite build",
-    "build:native": "PLATFORM=native vite build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc && npm run prod:build && npm run dev:build",
+
+    "// production build": "",
+    "prod:build": "npm run prod:build:web && npm run prod:build:native",
+    "prod:build:web": "PLATFORM=web vite build",
+    "prod:build:native": "PLATFORM=native vite build",
+
+    "// development build": "",
+    "dev:build": "npm run dev:build:web && npm run dev:build:native",
+    "dev:build:web": "PLATFORM=web vite build -m development",
+    "dev:build:native": "PLATFORM=native vite build -m development"
   },
   "keywords": [],
   "author": "",

@@ -16,7 +16,7 @@ if (!PLATFORM || !supportedPlatforms.includes(PLATFORM)) {
   );
 }
 
-export default defineConfig({
+export default ({ mode }) => defineConfig({
   plugins: [
     dts({
       include: ["src"],
@@ -40,7 +40,7 @@ export default defineConfig({
       name: "my-lib",
       formats: ["es"],
     },
-    outDir: `dist/${PLATFORM}`,
+    outDir: `dist/${PLATFORM}/${mode}`,
     target: "es2016",
     emptyOutDir: true,
     rollupOptions: {
