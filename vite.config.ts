@@ -21,12 +21,12 @@ if (!PLATFORM || !supportedPlatforms.includes(PLATFORM)) {
 
 export default ({ mode }) => defineConfig({
   test: {
-    include: [`./src/**/*.${PLATFORM}.test.ts`]
+    include: [`./src/**/*.${PLATFORM}.test.ts`],
   },
   plugins: [
     dts({
       include: ["src"],
-      exclude: supportedPlatforms.filter((platform) => platform !== PLATFORM).map((excludePattern) => `src/**/*.${excludePattern}.ts`),
+      exclude: [...supportedPlatforms.filter((platform) => platform !== PLATFORM).map((excludePattern) => `src/**/*.${excludePattern}.ts?(x)`), "src/**/*.test.ts?(x)"],
       copyDtsFiles: true,
       outDir: `dist/${PLATFORM}/types`,
       beforeWriteFile: async (filePath, content) => {
