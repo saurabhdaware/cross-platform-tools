@@ -1,9 +1,9 @@
 import path from "path";
-import { Plugin, mergeConfig } from "vite";
+import { Plugin, UserConfig, mergeConfig } from "vite";
 import dtsPlugin, { PluginOptions as DTSPluginOptions } from "vite-plugin-dts";
 
-const viteModuleResolutions = ({ platform }): Plugin => ({
-  name: "vite-cross-platform-library",
+const viteModuleResolutions = ({ platform }: { platform: string }): Plugin => ({
+  name: "vite-cross-platform",
   config: (userConfig) => {
     const { mode = "production" } = userConfig;
     return mergeConfig(
@@ -43,13 +43,13 @@ const viteModuleResolutions = ({ platform }): Plugin => ({
         test: {
           include: [`./src/**/*.${platform}.test.ts`],
         },
-      },
+      } as UserConfig,
       userConfig
     );
   },
 });
 
-export const viteCrossPlatformLibrary = ({
+export const viteCrossPlatform = ({
   platform,
   supportedPlatforms,
   dtsPluginOptions,
@@ -82,6 +82,7 @@ export const viteCrossPlatformLibrary = ({
           content,
         };
       },
+      ...dtsPluginOptions,
     }),
   ];
 };

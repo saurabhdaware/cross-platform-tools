@@ -19,9 +19,6 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "moduleSuffixes": [".all", ".web", ""],
     "types": ["vite/client"],
   },
-  "include": ["src"],
-  "references": [{ "path": "./tsconfig.node.json" }]
 }
