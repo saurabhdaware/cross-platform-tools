@@ -1,9 +1,21 @@
 {
-  "name": "client",
+  "name": "@cross-platform-tools/examples-client",
+  "private": "true",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./dist/node/production/index.js",
+  "types": "./dist/node/types/index.d.ts",
   "type": "module",
+  "exports": {
+    "node": {
+      "default": "./dist/node/production/index.js",
+      "types": "./dist/node/types/index.d.ts"
+    },
+    "default": {
+      "default": "./dist/client/production/index.js",
+      "types": "./dist/client/types/index.d.ts"
+    }
+  },
   "scripts": {
     "build": "PLATFORM=node vite build && PLATFORM=client vite build"
   },
