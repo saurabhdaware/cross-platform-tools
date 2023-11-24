@@ -1,0 +1,1 @@
+export { viteCrossPlatform } from './vite-cross-platform';

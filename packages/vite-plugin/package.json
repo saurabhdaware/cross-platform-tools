@@ -1,0 +1,34 @@
+{
+  "name": "@cross-platform-tools/vite-plugin",
+  "version": "0.0.1",
+  "type": "module",
+  "description": "Vite Plugin to create cross platform libraries and bundles",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "test": "vitest",
+    "build": "vite build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saurabhdaware/cross-platform-tools.git"
+  },
+  "keywords": [
+    "cross-platform",
+    "vite",
+    "web-native",
+    "library-starter"
+  ],
+  "author": "saurabhdaware",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/saurabhdaware/cross-platform-tools/issues"
+  },
+  "homepage": "https://github.com/saurabhdaware/cross-platform-tools#readme",
+  "dependencies": {
+    "vite-plugin-dts": "^3.6.3"
+  },
+  "peerDependencies": {
+    "vite": "^4 || ^5"
+  }
+}
