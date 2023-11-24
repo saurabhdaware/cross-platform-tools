@@ -5,9 +5,14 @@
   "description": "Vite Plugin to create cross platform libraries and bundles",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "test": "vitest",
-    "build": "vite build"
+    "build": "vite build",
+    "prepublishOnly": "pnpm build && cp ../../README.md ./README.md",
+    "postpublish": "rm ./README.md"
   },
   "repository": {
     "type": "git",
