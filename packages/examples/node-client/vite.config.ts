@@ -1,17 +1,18 @@
 /// <reference types="vitest" />
 
 import { defineConfig } from "vite";
-import { viteCrossPlatform } from '@cross-platform-tools/vite-plugin';
-
-// Want to add new extension and bundle? add it here :D
-export const supportedPlatforms = ["client", "node"] as const;
-
-type SupportedPlatformTypes = (typeof supportedPlatforms)[number];
-
-const PLATFORM = process.env.PLATFORM as SupportedPlatformTypes;
+import { viteCrossPlatform } from "@cross-platform-tools/vite-plugin";
 
 export default defineConfig({
   plugins: [
-    viteCrossPlatform({ platform: PLATFORM, supportedPlatforms }),
-  ]
+    viteCrossPlatform({
+      platform: process.env.PLATFORM!,
+      supportedPlatforms: ["client", "node"],
+    }),
+  ],
+  build: {
+    lib: {
+      entry: './src/index.ts'
+    }
+  }
 });
