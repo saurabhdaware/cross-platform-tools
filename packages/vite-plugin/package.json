@@ -1,10 +1,13 @@
 {
   "name": "@cross-platform-tools/vite-plugin",
   "version": "0.0.1",
+  "type": "module",
   "description": "Vite Plugin to create cross platform libraries and bundles",
-  "main": "./vite-cross-platform.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
-    "test": "vitest"
+    "test": "vitest",
+    "build": "vite build"
   },
   "repository": {
     "type": "git",

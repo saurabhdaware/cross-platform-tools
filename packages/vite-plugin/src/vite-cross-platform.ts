@@ -1,9 +1,8 @@
-import path from "path";
 import { Plugin, UserConfig, mergeConfig } from "vite";
 import dtsPlugin, { PluginOptions as DTSPluginOptions } from "vite-plugin-dts";
 
 const viteModuleResolutions = ({ platform }: { platform: string }): Plugin => ({
-  name: "vite-cross-platform",
+  name: "@cross-platform-tools/vite-plugin",
   config: (userConfig) => {
     const { mode = "production" } = userConfig;
     return mergeConfig(
@@ -33,15 +32,14 @@ const viteModuleResolutions = ({ platform }: { platform: string }): Plugin => ({
             ".ts",
             ".jsx",
             ".tsx",
+            `.${platform}.js`,
             `.${platform}.ts`,
+            `.${platform}.jsx`,
             `.${platform}.tsx`,
           ],
-          alias: {
-            "@": `${path.resolve(__dirname, "./src")}`,
-          },
         },
         test: {
-          include: [`./src/**/*.${platform}.test.ts`],
+          include: [`./src/**/*.${platform}.test.ts`, `./src/**/*.${platform}.test.tsx`],
         },
       } as UserConfig,
       userConfig

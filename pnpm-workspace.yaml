@@ -1,0 +1,3 @@
+packages:
+  - 'packages/vite-plugin'
+  - 'packages/examples/**'
