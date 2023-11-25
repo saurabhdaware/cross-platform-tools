@@ -93,7 +93,7 @@ export const viteCrossPlatform = ({
   platform,
   supportedPlatforms,
   lib,
-  outputTypes,
+  outputTypes = true,
   dtsPluginOptions,
 }: ViteCrossPlatformPluginOptions): PluginOption => {
   if (!platform || !supportedPlatforms.includes(platform)) {

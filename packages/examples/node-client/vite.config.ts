@@ -11,7 +11,8 @@ export default defineConfig({
       lib: {
         entryDir: 'src',
         outDir: 'dist',
-      }
+      },
+      outputTypes: true,
     }),
   ],
   build: {
