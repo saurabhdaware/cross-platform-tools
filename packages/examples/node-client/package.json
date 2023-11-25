@@ -19,6 +19,7 @@
     }
   },
   "scripts": {
+    "test": "PLATFORM=node vitest run && PLATFORM=client vitest run",
     "build": "pnpm build:prod && pnpm build:dev",
     "build:prod": "PLATFORM=node vite build && PLATFORM=client vite build",
     "build:dev": "PLATFORM=node vite build --mode development && PLATFORM=client vite build --mode development"

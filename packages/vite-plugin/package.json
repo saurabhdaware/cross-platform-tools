@@ -11,6 +11,7 @@
   "scripts": {
     "test": "vitest",
     "build": "vite build",
+    "dev": "pnpm build && nodemon --exec \"TYPES=false pnpm build\" --watch src -e ts",
     "prepublishOnly": "pnpm build && cp ../../README.md ./README.md",
     "postpublish": "rm ./README.md"
   },

@@ -8,6 +8,10 @@ export default defineConfig({
     viteCrossPlatform({
       platform: process.env.PLATFORM!,
       supportedPlatforms: ["client", "node"],
+      lib: {
+        entryDir: 'src',
+        outDir: 'dist',
+      }
     }),
   ],
   build: {

@@ -23,7 +23,11 @@ export default defineConfig({
   plugins: [
     viteCrossPlatform({ 
       platform: process.env.PLATFORM, 
-      supportedPlatforms: ['node', 'client'] 
+      supportedPlatforms: ['node', 'client'],
+      lib: {
+        entryDir: 'src',
+        outDir: 'dist'
+      } 
     }),
   ]
 });
@@ -34,21 +38,18 @@ export default defineConfig({
 
 ```ts
 // getData.node.ts
-
 export const getData = () => 1234;
 ```
 
 
 ```ts
 // getData.client.ts
-
 export const getData = () => 4321;
 ```
 
 
 ```ts
 // index.ts
-
 export { getData } from './getData';
 ```
 
