@@ -10,9 +10,12 @@ import dtsPlugin, { PluginOptions as DTSPluginOptions } from "vite-plugin-dts";
 
 const viteModuleResolutions = ({
   platform,
-  lib,
-}: Pick<ViteCrossPlatformPluginOptions, "platform"> & {
-  lib: Required<ViteCrossPlatformPluginOptions['lib']>;
+  entryDir,
+  outDir,
+  extensions,
+  isLibrary
+}: Pick<ViteCrossPlatformPluginOptions, "platform" | "entryDir" | "outDir" | 'isLibrary'> & {
+  extensions: string[];
 }): Plugin => ({
   name: "@cross-platform-tools/vite-plugin",
   config: (userConfig) => {
@@ -20,13 +23,13 @@ const viteModuleResolutions = ({
 
     return mergeConfig(
       {
-        build: {
+        build: isLibrary ? {
           lib: {
-            entry: `${path.resolve(lib.entryDir, "./index.ts")}`,
+            entry: `${path.resolve(entryDir, "./index.ts")}`,
             name: "index",
             formats: ["es"],
           },
-          outDir: `${lib.outDir}/${platform}/${mode}`,
+          outDir: `${outDir}/${platform}/${mode}`,
           target: "es2016",
           emptyOutDir: true,
           rollupOptions: {
@@ -38,19 +41,19 @@ const viteModuleResolutions = ({
               },
             },
           },
-        },
+        } : undefined,
         resolve: {
           extensions: [
-            ...lib.extensions.map((finalExtension) => `.${finalExtension}`),
-            ...lib.extensions.map(
+            ...extensions.map((finalExtension) => `.${finalExtension}`),
+            ...extensions.map(
               (finalExtension) => `.${platform}.${finalExtension}`
             ),
           ],
         },
         test: {
-          include: lib.extensions.map(
+          include: extensions.map(
             (finalExtension) =>
-              `./${lib.entryDir}/**/*.${platform}.test.${finalExtension}`
+              `./${entryDir}/**/*.${platform}.test.${finalExtension}`
           ),
         },
       } as UserConfig,
@@ -59,7 +62,11 @@ const viteModuleResolutions = ({
   },
 });
 
-type CrossPlatformPluginLibraryOptions = {
+type ViteCrossPlatformPluginOptions = {
+  platform: string;
+  outputTypes?: boolean;
+  supportedPlatforms: string[];
+  dtsPluginOptions?: DTSPluginOptions;
   /**
    * entry directory of your library
    *
@@ -79,21 +86,23 @@ type CrossPlatformPluginLibraryOptions = {
    * @default - ['ts', 'tsx', 'js', 'jsx']
    */
   extensions?: string[];
-};
 
-type ViteCrossPlatformPluginOptions = {
-  platform: string;
-  lib: CrossPlatformPluginLibraryOptions;
-  outputTypes?: boolean;
-  supportedPlatforms: string[];
-  dtsPluginOptions?: DTSPluginOptions;
+  /**
+   * Is building for a library
+   * 
+   * @default true
+   */
+  isLibrary?: boolean;
 };
 
 export const viteCrossPlatform = ({
   platform,
   supportedPlatforms,
-  lib,
+  entryDir = "src",
+  outDir = "dist",
+  extensions = ["ts", "tsx", "js", "jsx"],
   outputTypes = true,
+  isLibrary = true,
   dtsPluginOptions,
 }: ViteCrossPlatformPluginOptions): PluginOption => {
   if (!platform || !supportedPlatforms.includes(platform)) {
@@ -104,28 +113,22 @@ export const viteCrossPlatform = ({
     );
   }
 
-  const libOptions = {
-    outDir: lib.outDir ?? "dist",
-    entryDir: lib.entryDir ?? "src",
-    extensions: lib.extensions ?? ["ts", "tsx", "js", "jsx"],
-  };
+  const plugins = [
+    viteModuleResolutions({ platform, entryDir, outDir, extensions, isLibrary }),
+  ];
 
-  const plugins = [viteModuleResolutions({ platform, lib: libOptions })];
-
-  if (outputTypes) {
+  if (outputTypes && isLibrary) {
     plugins.push(
       dtsPlugin({
-        include: [libOptions.entryDir],
+        include: [entryDir],
         exclude: [
           ...supportedPlatforms
             .filter((supportedPlatform) => supportedPlatform !== platform)
-            .map(
-              (excludePattern) => `${lib.entryDir}/**/*.${excludePattern}.*`
-            ),
-          `${lib.entryDir}/**/*.test.*`,
+            .map((excludePattern) => `${entryDir}/**/*.${excludePattern}.*`),
+          `${entryDir}/**/*.test.*`,
         ],
         copyDtsFiles: true,
-        outDir: `${libOptions.outDir}/${platform}/types`,
+        outDir: `${outDir}/${platform}/types`,
         beforeWriteFile: async (filePath, content) => {
           return {
             filePath: filePath.replace(`.${platform}`, ""),

@@ -2,20 +2,18 @@
 
 import { defineConfig } from "vite";
 import { viteCrossPlatform } from "@cross-platform-tools/vite-plugin";
+import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [
+    react(),
     viteCrossPlatform({
       platform: process.env.PLATFORM!,
-      supportedPlatforms: ["client", "node"],
+      supportedPlatforms: ["web", "native"],
       entryDir: 'src',
       outDir: 'dist',
-      outputTypes: true,
+      outputTypes: false,
+      isLibrary: false,
     }),
-  ],
-  build: {
-    lib: {
-      entry: './src/index.ts'
-    }
-  }
+  ]
 });
