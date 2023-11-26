@@ -1,9 +1,0 @@
-{
-  "extends": "../../../tsconfig.json",
-  "compilerOptions": {
-    // by default we read client types. Change this to .node to read node types in your editor
-    "moduleSuffixes": [".client", ""],
-    "types": ["vite/client"],
-  },
-  "include": ["src"],
-}

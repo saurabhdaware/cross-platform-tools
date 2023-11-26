@@ -1,4 +1,4 @@
-import { getData } from "./getData";
+import { getData } from "./getData.browser";
 import { describe, test, expect } from 'vitest';
 
 describe('getData', () => {

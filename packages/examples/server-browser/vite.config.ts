@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [
     viteCrossPlatform({
       platform: process.env.PLATFORM!,
-      supportedPlatforms: ["client", "node"],
+      supportedPlatforms: ["browser", "server"],
       entryDir: 'src',
       outDir: 'dist',
       outputTypes: true,

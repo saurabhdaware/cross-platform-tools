@@ -1,0 +1,33 @@
+{
+  "name": "@cross-platform-tools/examples-browser",
+  "private": "true",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/server/production/index.js",
+  "types": "./dist/server/types/index.d.ts",
+  "type": "module",
+  "exports": {
+    "node": {
+      "development": "./dist/server/development/index.js",
+      "types": "./dist/server/types/index.d.ts",
+      "default": "./dist/server/production/index.js"
+    },
+    "default": {
+      "development": "./dist/browser/development/index.js",
+      "types": "./dist/browser/types/index.d.ts",
+      "default": "./dist/browser/production/index.js"
+    }
+  },
+  "scripts": {
+    "test": "PLATFORM=server vitest run && PLATFORM=browser vitest run",
+    "build": "pnpm build:prod && pnpm build:dev",
+    "build:prod": "PLATFORM=server vite build && PLATFORM=browser vite build",
+    "build:dev": "PLATFORM=server vite build --mode development && PLATFORM=browser vite build --mode development"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@cross-platform-tools/vite-plugin": "workspace:*"
+  }
+}
