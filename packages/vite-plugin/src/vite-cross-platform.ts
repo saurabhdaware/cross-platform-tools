@@ -128,13 +128,7 @@ export const viteCrossPlatform = ({
           `${entryDir}/**/*.test.*`,
         ],
         copyDtsFiles: true,
-        outDir: `${outDir}/${platform}/types`,
-        beforeWriteFile: async (filePath, content) => {
-          return {
-            filePath: filePath.replace(`.${platform}`, ""),
-            content,
-          };
-        },
+        outDir: `${outDir}/types`,
         ...dtsPluginOptions,
       })
     );

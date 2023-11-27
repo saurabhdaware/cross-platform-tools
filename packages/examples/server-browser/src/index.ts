@@ -1,1 +1,1 @@
-export { getData } from './getData.browser';
+export { getData } from './getData';
