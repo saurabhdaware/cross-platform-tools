@@ -8,6 +8,10 @@ Vite plugin that abstracts out module resolutions so you can build for multiple 
 
 ### Getting Started
 
+[**Open in Stackblitz**](https://stackblitz.com/~/github.com/saurabhdaware/cross-platform-tools)
+
+or scaffold locally -
+
 - Scaffold an example node-edge-library
 
   ```sh
