@@ -6,6 +6,8 @@
 
 Vite plugin that abstracts out module resolutions so you can build for multiple platforms from a single codebase.
 
+`Button.potato.tsx`, `Button.tomato.tsx` ---> `dist/potato/Button.js`, `dist/tomato/Button.js`, `dist/types/Button.d.ts`
+
 ### Getting Started
 
 [**Open in Stackblitz**](https://stackblitz.com/~/github.com/saurabhdaware/cross-platform-tools)
