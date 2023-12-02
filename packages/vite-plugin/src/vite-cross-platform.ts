@@ -35,6 +35,7 @@ const viteModuleResolutions = ({
           rollupOptions: {
             output: {
               preserveModules: true,
+              preserveModulesRoot: entryDir,
               inlineDynamicImports: false,
               entryFileNames: ({ name }) => {
                 return `${name.replace(`.${platform}`, "")}.js`;
