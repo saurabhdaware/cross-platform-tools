@@ -10,14 +10,14 @@ Vite plugin that abstracts out module resolutions so you can build for multiple 
 
 ### Getting Started
 
-[**Open in Stackblitz**](https://stackblitz.com/~/github.com/saurabhdaware/cross-platform-tools)
+[**Open in Stackblitz**](https://stackblitz.com/~/github.com/saurabhdaware/server-edge-library)
 
 or scaffold locally -
 
-- Scaffold an example node-edge-library
+- Scaffold an example server-edge-library
 
   ```sh
-  npx degit saurabhdaware/node-edge-library node-edge-library
+  npx degit saurabhdaware/server-edge-library server-edge-library
   ```
 - Install Dependencies
 
@@ -28,8 +28,8 @@ or scaffold locally -
 - Run the example of the library usage
 
   ```sh
-  cd packages/node-edge-app
-  node run.js # Runs the example with node bundle
+  cd packages/server-edge-app
+  node --conditions=server run.js # Runs the example with server bundle
   node --conditions=edge run.js # Runs the example with edge bundle
   ```
 
@@ -41,11 +41,11 @@ or scaffold locally -
 
 ##### Module Resolutions in Build
 
-`@cross-platform-tools/vite-plugin` package takes care of resolving extensions such as `.node.ts`, `.client.ts`, `.xyz.ts` and creates final bundles such as `dist/node/`, `dist/client/`, or `dist/xyz`.
+`@cross-platform-tools/vite-plugin` package takes care of resolving extensions such as `.server.ts`, `.client.ts`, `.xyz.ts` and creates final bundles such as `dist/server/`, `dist/client/`, or `dist/xyz`.
 
 ##### Module Resolutions in Tests
 
-It also takes care of resolving extensions for tests when used with `vitest`. So you can define your platform-specific tests with `.client.test.ts`, `.node.test.ts`, etc.
+It also takes care of resolving extensions for tests when used with `vitest`. So you can define your platform-specific tests with `.client.test.ts`, `.server.test.ts`, etc.
 
 ##### Base Library Setup
 
@@ -75,8 +75,8 @@ export default defineConfig({
       // We call `vite build` multiple times for each platform
       platform: process.env.PLATFORM,
       // This can be any string that is used in filenames. 
-      // E.g. something.node.ts and something.client.ts in this example
-      supportedPlatforms: ['node', 'client'],
+      // E.g. something.server.ts and something.client.ts in this example
+      supportedPlatforms: ['server', 'client'],
       lib: {
         entryDir: 'src',
         outDir: 'dist'
@@ -90,7 +90,7 @@ export default defineConfig({
 
 
 ```ts
-// src/getData.node.ts
+// src/getData.server.ts
 export const getData = () => 1234;
 ```
 
@@ -110,11 +110,11 @@ export { getData } from './getData';
 
 ```json
 {
-  "scripts": "PLATFORM=node vite build && PLATFORM=client vite build",
+  "scripts": "PLATFORM=server vite build && PLATFORM=client vite build",
   "exports": {
     "node": {
-      "default": "./dist/node/production/index.js",
-      "types": "./dist/node/types/index.d.ts"
+      "default": "./dist/server/production/index.js",
+      "types": "./dist/server/types/index.d.ts"
     },
     "default": {
       "default": "./dist/client/production/index.js",
