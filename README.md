@@ -10,9 +10,9 @@ Vite plugin that abstracts out module resolutions so you can build for multiple 
 
 ### 🤝🏼 Getting Started 
 
-[**Open in Stackblitz**](https://stackblitz.com/~/github.com/saurabhdaware/server-edge-library)
+- [**Open in Stackblitz**](https://stackblitz.com/~/github.com/saurabhdaware/server-edge-library)
 
-or scaffold locally -
+  or scaffold locally -
 
 - Scaffold an example server-edge-library
 
@@ -38,6 +38,8 @@ or scaffold locally -
 >
 > The example is kept simple for better understanding of code. If your usecase requires you to build final bundles of app, you can also pass these conditions from [resolve.conditions](https://vitejs.dev/config/shared-options#resolve-conditions) method in vite.
 
+
+
 ### 🚀 Examples
 
 |                               | GitHub                                                                                                    | StackBlitz                                                                                          | Local Scaffold                                                  |
@@ -46,6 +48,8 @@ or scaffold locally -
 | React x Vue Component Library | [saurabhdaware/react-vue-component-library](https://github.com/saurabhdaware/react-vue-component-library) | [Open in StackBlitz](https://stackblitz.com/~/github.com/saurabhdaware/react-vue-component-library) | `npx degit saurabhdaware/react-vue-component-library react-vue` |
 | React x React Native Library  | [saurabhdaware/react-rn-library](https://github.com/saurabhdaware/react-rn-library)                       | [Open in StackBlitz](https://stackblitz.com/~/github.com/saurabhdaware/react-rn-library)            | `npx degit saurabhdaware/react-rn-library react-rn`             |
 | Mobile x Desktop Site         | [saurabhdaware/desktop-mobile-site](https://github.com/saurabhdaware/desktop-mobile-site)                 | [Open in StackBlitz](https://stackblitz.com/~/github.com/saurabhdaware/desktop-mobile-site)         | `npx degit saurabhdaware/desktop-mobile-site desktop-mobile`    |
+
+
 
 ### ✨ Features
 
