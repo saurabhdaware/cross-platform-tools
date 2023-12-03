@@ -8,7 +8,7 @@ Vite plugin that abstracts out module resolutions so you can build for multiple 
 
 `Button.potato.tsx`, `Button.tomato.tsx` ---> `dist/potato/Button.js`, `dist/tomato/Button.js`, `dist/types/Button.d.ts`
 
-### Getting Started
+### 🤝🏼 Getting Started 
 
 [**Open in Stackblitz**](https://stackblitz.com/~/github.com/saurabhdaware/server-edge-library)
 
@@ -38,21 +38,33 @@ or scaffold locally -
 >
 > The example is kept simple for better understanding of code. If your usecase requires you to build final bundles of app, you can also pass these conditions from [resolve.conditions](https://vitejs.dev/config/shared-options#resolve-conditions) method in vite.
 
-### How does it work?
+### 🚀 Examples
 
-##### Module Resolutions in Build
+- [Server x Edge Library](https://stackblitz.com/~/github.com/saurabhdaware/server-edge-library)
+- [React x React Native Library](https://stackblitz.com/~/github.com/saurabhdaware/react-rn-library)
+- [React x Vue Component Library](https://stackblitz.com/~/github.com/saurabhdaware/react-vue-component-library)
+- [Desktop x Mobile Site](https://stackblitz.com/~/github.com/saurabhdaware/desktop-mobile-site)
+  
 
-`@cross-platform-tools/vite-plugin` package takes care of resolving extensions such as `.server.ts`, `.client.ts`, `.xyz.ts` and creates final bundles such as `dist/server/`, `dist/client/`, or `dist/xyz`.
+### ✨ Features
 
-##### Module Resolutions in Tests
+- #### Module Resolutions in Build
+  
+  `@cross-platform-tools/vite-plugin` package takes care of resolving extensions such as `.server.ts`, `.client.ts`, `.xyz.ts` and creates final bundles such as `dist/server/`, `dist/client/`, or `dist/xyz`.
 
-It also takes care of resolving extensions for tests when used with `vitest`. So you can define your platform-specific tests with `.client.test.ts`, `.server.test.ts`, etc.
+- #### Module Resolutions in Tests
 
-##### Base Library Setup
+  It also takes care of resolving extensions for tests when used with `vitest`. So you can define your platform-specific tests with `.client.test.ts`, `.server.test.ts`, etc.
 
-This plugin also takes care of basic things required to build a library such as type file generations for all platforms, base library configuration setup with vite, etc.
+- #### Development and Production Builds
 
-### Manual Setup
+  You can create build using `--mode development` flag of Vite to generate development build. When used with `if (import.meta.env.MODE === 'development)` condition, it removes the development-specific code from production bundle.
+
+- #### Base Library Setup
+
+  This plugin also takes care of basic things required to build a library such as type file generations for all platforms, base library configuration setup with vite, etc.
+
+### 📚 Manual Setup
 
 This section explains the steps required to set up a library from scratch. Check out the [Getting Started](#getting-started) for Quick Start guide.
 
