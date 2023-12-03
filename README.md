@@ -17,11 +17,12 @@ or scaffold locally -
 - Scaffold an example server-edge-library
 
   ```sh
-  npx degit saurabhdaware/server-edge-library server-edge-library
+  npx degit saurabhdaware/server-edge-library server-edge
   ```
 - Install Dependencies
 
   ```sh
+  cd server-edge
   pnpm install
   ```
 
