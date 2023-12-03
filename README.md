@@ -6,7 +6,28 @@
 
 Vite plugin that abstracts out module resolutions so you can build for multiple platforms from a single codebase.
 
-`Button.potato.tsx`, `Button.tomato.tsx` ---> `dist/potato/Button.js`, `dist/tomato/Button.js`, `dist/types/Button.d.ts`
+
+### 🤔 Umm... what is even this? what does it do exactly?
+
+In it's simplest form, it takes module extensions and turns them into separate bundle.
+
+| **Input** | **Output** |
+|------------|-----------|
+| <ul><li>src<ul><li>Button.potato.ts</li><li>Button.tomato.ts</li></ul></li></ul> | <ul><li>dist<ul><li>potato<ul><li>Button.js</li></ul></li><li>tomato<ul><li>Button.js</li></ul><li>types<ul><li>Button.d.ts</li></ul></li></li></ul> |
+
+This allows you to keep your code for multiple platforms in single codebase.
+
+Example, You can create a component library that supports React and Vue both using- 
+
+- src
+  - Button.react.tsx
+  - Button.vue.tsx
+  - buttonUtils.ts
+  - buttonStyles.css
+
+So your framework specific code stays in `Button.react.tsx` and `Button.vue.tsx` but both of them can import from same `buttonStyles.css` and have common logic inside `buttonUtils.ts`.
+
+Checkout working examples below for better context.
 
 ### 🤝🏼 Getting Started 
 
