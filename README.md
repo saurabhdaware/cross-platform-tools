@@ -40,11 +40,12 @@ or scaffold locally -
 
 ### 🚀 Examples
 
-- [Server x Edge Library](https://stackblitz.com/~/github.com/saurabhdaware/server-edge-library)
-- [React x React Native Library](https://stackblitz.com/~/github.com/saurabhdaware/react-rn-library)
-- [React x Vue Component Library](https://stackblitz.com/~/github.com/saurabhdaware/react-vue-component-library)
-- [Desktop x Mobile Site](https://stackblitz.com/~/github.com/saurabhdaware/desktop-mobile-site)
-  
+|                               | GitHub                                                                                                    | StackBlitz                                                                                          | Local Scaffold                                                  |
+|-------------------------------|-----------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
+| Server x Edge Library         | [saurabhdaware/server-edge-library](https://github.com/saurabhdaware/server-edge-library)                 | [Open in StackBlitz](https://stackblitz.com/~/github.com/saurabhdaware/server-edge-library)         | `npx degit saurabhdaware/server-edge-library server-edge`       |
+| React x Vue Component Library | [saurabhdaware/react-vue-component-library](https://github.com/saurabhdaware/react-vue-component-library) | [Open in StackBlitz](https://stackblitz.com/~/github.com/saurabhdaware/react-vue-component-library) | `npx degit saurabhdaware/react-vue-component-library react-vue` |
+| React x React Native Library  | [saurabhdaware/react-rn-library](https://github.com/saurabhdaware/react-rn-library)                       | [Open in StackBlitz](https://stackblitz.com/~/github.com/saurabhdaware/react-rn-library)            | `npx degit saurabhdaware/react-rn-library react-rn`             |
+| Mobile x Desktop Site         | [saurabhdaware/desktop-mobile-site](https://github.com/saurabhdaware/desktop-mobile-site)                 | [Open in StackBlitz](https://stackblitz.com/~/github.com/saurabhdaware/desktop-mobile-site)         | `npx degit saurabhdaware/desktop-mobile-site desktop-mobile`    |
 
 ### ✨ Features
 
