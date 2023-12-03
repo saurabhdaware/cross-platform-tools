@@ -147,7 +147,7 @@ You can also define your custom namespace such as `"xyz": "./path/to/bundle"` an
 
 ---
 
+Inspired from the setup of [Razorpay's Design System Setup - Blade](https://github.com/razorpay/blade). Checkout [The Sorcery of Building a Cross Platform Design System Architecture](https://youtu.be/ZT-FMdiHMfA?si=aXtHHt3StLw0UqOo) talk by @kamleshchandnani where he explains the architecture of Razorpay's Design System in the context of React x React Native 🤗
 
-Thanks for checking this out! Do drop your feedback on [Twitter (@saurabhdawaree)](https://x.com/saurabhdawaree). 
 
-Like my work? You can sponsor me from [GitHub Sponsors @saurabhdaware](https://github.com/sponsors/saurabhdaware)
+Like my work? You can star this repo or you can sponsor me from [GitHub Sponsors @saurabhdaware](https://github.com/sponsors/saurabhdaware) ⭐️
